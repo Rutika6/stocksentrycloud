@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    image: stocksentry:latest
+    container_name: stocksentry
+    ports:
+      - "5001:5000"
+    env_file:
+      - .env
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
